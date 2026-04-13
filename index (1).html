@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juan & Isa · 17 de Mayo 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Montserrat:wght@200;300;400&display=swap');
+
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
 body {
@@ -39,6 +34,8 @@ body {
   padding: 2.8rem 2rem 2.2rem;
   position: relative;
 }
+
+/* Velo central más claro para legibilidad del texto */
 .header-art::before {
   content: '';
   position: absolute; inset: 0;
@@ -132,7 +129,7 @@ body {
 .play-btn:hover { border-color:#9abca8; }
 .play-btn svg { width:13px; height:13px; fill:#9abca8; }
 .progress-bar { position:absolute; bottom:0; left:0; right:0; height:2px; background:#3a6050; }
-.progress-fill { height:100%; width:0%; background:linear-gradient(90deg,#6aac84,#b0d4bc); transition:width 0.5s linear; }
+.progress-fill { height:100%; width:0%; background:linear-gradient(90deg,#6aac84,#b0d4bc); transition:width 1s linear; }
 
 /* Body */
 .body { padding: 2.2rem 2.2rem; background: #faf9f5; }
@@ -144,7 +141,7 @@ body {
 .welcome { text-align:center; margin-bottom:2rem; }
 .welcome-text { font-family:'EB Garamond',serif; font-style:italic; font-size:16.5px; line-height:2; color:#1e3828; }
 
-/* Countdown */
+/* Countdown — verde claro armonioso */
 .countdown-section {
   background: linear-gradient(135deg, #cce8d8 0%, #b8dcc8 50%, #c8e8d4 100%);
   border: 0.5px solid #98c8b0;
@@ -152,15 +149,49 @@ body {
   margin-bottom: 2rem;
   text-align: center;
 }
-.countdown-label { font-size:8px; letter-spacing:0.45em; text-transform:uppercase; color:#2e6048; font-weight:400; margin-bottom:1.1rem; }
-.countdown-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; }
-.countdown-unit { background:rgba(255,255,255,0.65); border:0.5px solid #88b8a0; padding:0.8rem 0.4rem; }
-.countdown-num { font-family:'Playfair Display',serif; font-size:30px; font-weight:400; color:#1e4c38; line-height:1; display:block; }
-.countdown-unit-label { font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:#3a7058; font-weight:400; margin-top:4px; display:block; }
+.countdown-label {
+  font-size: 8px; letter-spacing: 0.45em;
+  text-transform: uppercase; color: #2e6048;
+  font-weight: 400; margin-bottom: 1.1rem;
+}
+.countdown-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+.countdown-unit {
+  background: rgba(255,255,255,0.65);
+  border: 0.5px solid #88b8a0;
+  padding: 0.8rem 0.4rem;
+}
+.countdown-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px; font-weight: 400;
+  color: #1e4c38;
+  line-height: 1;
+  display: block;
+}
+.countdown-unit-label {
+  font-size: 8px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: #3a7058;
+  font-weight: 400; margin-top: 4px;
+  display: block;
+}
 
 /* Main verse */
-.main-verse { background:#eef6f0; border-left:2px solid #5a8c70; padding:1.6rem 1.6rem; margin-bottom:2rem; position:relative; }
-.main-verse::before { content:'\201C'; font-family:'Playfair Display',serif; font-size:70px; color:#5a8c7022; position:absolute; top:-8px; left:10px; line-height:1; }
+.main-verse {
+  background: #eef6f0;
+  border-left: 2px solid #5a8c70;
+  padding: 1.6rem 1.6rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.main-verse::before {
+  content:'\201C';
+  font-family:'Playfair Display',serif;
+  font-size:70px; color:#5a8c7022;
+  position:absolute; top:-8px; left:10px; line-height:1;
+}
 .verse-main-text { font-family:'Playfair Display',serif; font-style:italic; font-size:21px; color:#1a3428; line-height:1.5; position:relative; z-index:1; margin-bottom:0.6rem; }
 .verse-ref-main { font-size:8px; letter-spacing:0.35em; text-transform:uppercase; color:#3a7058; font-weight:400; }
 
@@ -196,8 +227,7 @@ body {
 
 .bottom-band { height:5px; background:linear-gradient(90deg,#5a8c70,#9ec4a8,#5a8c70); margin-top:2.2rem; }
 </style>
-</head>
-<body>
+
 <div class="card">
   <div class="top-band"></div>
 
@@ -216,9 +246,7 @@ body {
     </div>
   </div>
 
-  <!-- Player -->
   <div class="music-player">
-    <audio id="audioPlayer" src="cancion.mp3" preload="auto"></audio>
     <div class="vinyl" id="vinyl"></div>
     <div class="song-info">
       <p class="song-title">Can't Help Falling in Love</p>
@@ -342,7 +370,6 @@ body {
 </div>
 
 <script>
-// Countdown
 const eventDate = new Date('2026-05-17T15:00:00');
 function updateCountdown() {
   const diff = eventDate - new Date();
@@ -359,42 +386,26 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 30000);
 
-// Music player
-let playing = false;
-const audio = document.getElementById('audioPlayer');
-
-audio.ontimeupdate = () => {
-  if (audio.duration) {
-    const pct = (audio.currentTime / audio.duration) * 100;
-    document.getElementById('progress').style.width = pct + '%';
-  }
-};
-
-audio.onended = () => {
-  playing = false;
-  document.getElementById('vinyl').classList.remove('playing');
-  document.querySelectorAll('.wave-bar').forEach(b => b.classList.remove('playing'));
-  document.getElementById('playIcon').innerHTML = '<path d="M8 5v14l11-7z"/>';
-  document.getElementById('progress').style.width = '0%';
-};
-
+let playing = false, progressInterval = null, currentProgress = 0;
 function togglePlay() {
   playing = !playing;
   const vinyl = document.getElementById('vinyl');
   const icon = document.getElementById('playIcon');
   const bars = document.querySelectorAll('.wave-bar');
   if (playing) {
-    audio.play();
     vinyl.classList.add('playing');
     bars.forEach(b => b.classList.add('playing'));
     icon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+    progressInterval = setInterval(() => {
+      currentProgress += 100 / 180;
+      if (currentProgress >= 100) currentProgress = 0;
+      document.getElementById('progress').style.width = currentProgress + '%';
+    }, 1000);
   } else {
-    audio.pause();
     vinyl.classList.remove('playing');
     bars.forEach(b => b.classList.remove('playing'));
     icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+    clearInterval(progressInterval);
   }
 }
 </script>
-</body>
-</html>
